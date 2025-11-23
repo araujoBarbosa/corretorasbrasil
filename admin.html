@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Painel do Administrador - Corretoras Brasil</title>
     <link rel="stylesheet" href="styles.css">
+
     <style>
         .admin-wrapper {
             min-height: 100vh;
@@ -24,17 +25,6 @@
             padding: 20px 22px 24px;
         }
 
-        .admin-card h1 {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .admin-card p {
-            font-size: 13px;
-            color: var(--cor-texto-suave);
-            margin-bottom: 16px;
-        }
-
         .linha-form-admin {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -47,11 +37,52 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Upload */
+        .upload-wrapper {
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+
+        .upload-btn {
+            background: #1d4ed8;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .upload-btn:hover {
+            opacity: 0.8;
+        }
+
+        .upload-info {
+            margin-left: 10px;
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        .preview-fotos {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .preview-fotos img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
     </style>
 </head>
 
 <body>
-    <!-- mesmo topo bonito do site -->
+
     <header class="topo">
         <div class="container topo-conteudo">
             <div class="logo">
@@ -62,41 +93,41 @@
                 </div>
             </div>
 
-            <a href="index.html" class="btn-secundario">← Voltar para o site</a>
+            <a href="index.html" class="btn-secundario">← Voltar</a>
         </div>
     </header>
 
     <div class="admin-wrapper">
         <div class="admin-card">
-            <!-- TELA DE LOGIN -->
+
+            <!-- LOGIN -->
             <div id="telaLogin">
-                <h1>Login do administrador</h1>
-                <p>Informe a senha para acessar o painel e cadastrar anúncios.</p>
+                <h1>Login</h1>
+                <p>Informe a senha para acessar o painel.</p>
 
                 <form id="formLogin" class="campo">
                     <label for="senhaAdmin">Senha</label>
-                    <input type="password" id="senhaAdmin" placeholder="Digite a senha do painel" required>
-                    <div class="acoes-form" style="justify-content:flex-start; margin-top:12px;">
-                        <button type="submit" class="btn-primario">Entrar</button>
-                    </div>
+                    <input type="password" id="senhaAdmin" required placeholder="Senha do painel">
+
+                    <button class="btn-primario" style="margin-top: 12px;">Entrar</button>
                 </form>
             </div>
 
-            <!-- TELA DO PAINEL -->
+            <!-- PAINEL -->
             <div id="telaPainel" style="display:none;">
                 <h1>Novo anúncio</h1>
-                <p>Preencha os dados do imóvel do cliente. Depois de salvar ele aparece automaticamente na página
-                    inicial.</p>
+                <p>Preencha os dados e selecione as fotos.</p>
 
                 <form id="formAdmin">
+
                     <div class="linha-form-admin">
                         <div class="campo">
-                            <label for="tituloAdmin">Título do anúncio</label>
-                            <input id="tituloAdmin" type="text" required placeholder="Ex: Casa 3 qts com quintal">
+                            <label>Título</label>
+                            <input id="tituloAdmin" type="text" required>
                         </div>
 
                         <div class="campo">
-                            <label for="tipoNegocioAdmin">Tipo de negócio</label>
+                            <label>Negócio</label>
                             <select id="tipoNegocioAdmin" required>
                                 <option value="">Selecione</option>
                                 <option value="venda">Venda</option>
@@ -105,7 +136,7 @@
                         </div>
 
                         <div class="campo">
-                            <label for="tipoImovelAdmin">Tipo de imóvel</label>
+                            <label>Imóvel</label>
                             <select id="tipoImovelAdmin" required>
                                 <option value="">Selecione</option>
                                 <option value="casa">Casa</option>
@@ -119,140 +150,163 @@
 
                     <div class="linha-form-admin">
                         <div class="campo">
-                            <label for="precoAdmin">Preço (R$)</label>
-                            <input id="precoAdmin" type="number" min="0" required placeholder="Ex: 350000">
+                            <label>Preço</label>
+                            <input id="precoAdmin" type="number" min="0" required>
                         </div>
 
                         <div class="campo">
-                            <label for="cidadeAdmin">Cidade</label>
-                            <input id="cidadeAdmin" type="text" required placeholder="Ex: São Paulo">
+                            <label>Cidade</label>
+                            <input id="cidadeAdmin" type="text" required>
                         </div>
 
                         <div class="campo">
-                            <label for="bairroAdmin">Bairro</label>
-                            <input id="bairroAdmin" type="text" required placeholder="Ex: Centro">
+                            <label>Bairro</label>
+                            <input id="bairroAdmin" type="text" required>
                         </div>
                     </div>
 
                     <div class="linha-form-admin">
                         <div class="campo">
-                            <label for="quartosAdmin">Quartos</label>
-                            <input id="quartosAdmin" type="number" min="0" placeholder="2">
+                            <label>Quartos</label>
+                            <input id="quartosAdmin" type="number">
                         </div>
 
                         <div class="campo">
-                            <label for="banheirosAdmin">Banheiros</label>
-                            <input id="banheirosAdmin" type="number" min="0" placeholder="1">
+                            <label>Banheiros</label>
+                            <input id="banheirosAdmin" type="number">
                         </div>
 
                         <div class="campo">
-                            <label for="vagasAdmin">Vagas de garagem</label>
-                            <input id="vagasAdmin" type="number" min="0" placeholder="1">
+                            <label>Vagas</label>
+                            <input id="vagasAdmin" type="number">
                         </div>
                     </div>
 
                     <div class="campo">
-                        <label for="descricaoAdmin">Descrição</label>
-                        <textarea id="descricaoAdmin" rows="4"
-                            placeholder="Pontos fortes do imóvel, reformas, área, proximidade de comércio, etc."></textarea>
+                        <label>Descrição</label>
+                        <textarea id="descricaoAdmin" rows="4"></textarea>
                     </div>
 
                     <div class="campo">
-                        <label for="whatsAdmin">WhatsApp do cliente</label>
-                        <input id="whatsAdmin" type="tel" required placeholder="DDD + número (somente dígitos)">
+                        <label>WhatsApp do cliente</label>
+                        <input id="whatsAdmin" type="tel" required placeholder="DDD + número">
+                    </div>
+
+                    <!-- NOVO SISTEMA DE UPLOAD -->
+                    <div class="campo">
+                        <label>Fotos do imóvel</label>
+
+                        <div class="upload-wrapper">
+                            <label for="uploadFotos" class="upload-btn">📸 Selecionar fotos</label>
+                            <span id="uploadInfo" class="upload-info">Nenhuma foto</span>
+
+                            <input type="file" id="uploadFotos" accept="image/*" multiple hidden>
+                            <div id="previewFotos" class="preview-fotos"></div>
+                        </div>
                     </div>
 
                     <div class="campo">
-                        <label>Links das fotos (URLs)</label>
-                        <input id="foto1" type="url" placeholder="Link da foto 1">
-                        <input id="foto2" type="url" placeholder="Link da foto 2 (opcional)" style="margin-top:6px;">
-                        <input id="foto3" type="url" placeholder="Link da foto 3 (opcional)" style="margin-top:6px;">
-                        <small style="color:#9ca3af; font-size:12px; margin-top:4px;">
-                            Dica: você pode colar links de fotos enviadas pelo cliente (Google Fotos, WhatsApp Web,
-                            etc).
-                        </small>
-                    </div>
-
-                    <div class="campo destaque-campo" style="margin-top:10px;">
                         <label>
                             <input type="checkbox" id="destaqueAdmin">
-                            Marcar como <strong>destaque</strong> (aparece primeiro na lista)
+                            Destaque
                         </label>
                     </div>
 
                     <div class="acoes-form">
                         <button type="reset" class="btn-secundario">Limpar</button>
-                        <button type="submit" class="btn-primario">Salvar anúncio</button>
+                        <button type="submit" class="btn-primario">Salvar</button>
                     </div>
                 </form>
-
-                <p style="font-size:12px; color:#9ca3af; margin-top:14px;">
-                    Após salvar, atualize a página inicial (index.html) para ver o anúncio aparecendo.
-                </p>
             </div>
         </div>
     </div>
 
     <script>
-        // senha do painel
         const SENHA_CORRETA = "Jad123456789son@";
 
-        const telaLogin = document.getElementById("telaLogin");
-        const telaPainel = document.getElementById("telaPainel");
-        const formLogin = document.getElementById("formLogin");
+        const login = document.getElementById("telaLogin");
+        const painel = document.getElementById("telaPainel");
 
-        formLogin.addEventListener("submit", function (e) {
+        document.getElementById("formLogin").addEventListener("submit", (e) => {
             e.preventDefault();
-            const senhaDigitada = document.getElementById("senhaAdmin").value.trim();
-
-            if (senhaDigitada === SENHA_CORRETA) {
-                telaLogin.style.display = "none";
-                telaPainel.style.display = "block";
+            if (document.getElementById("senhaAdmin").value === SENHA_CORRETA) {
+                login.style.display = "none";
+                painel.style.display = "block";
             } else {
-                alert("Senha incorreta. Tente novamente.");
+                alert("Senha incorreta.");
             }
         });
 
-        const formAdmin = document.getElementById("formAdmin");
+        // Upload de fotos
+        const inputFotos = document.getElementById("uploadFotos");
+        const preview = document.getElementById("previewFotos");
+        const info = document.getElementById("uploadInfo");
 
-        formAdmin.addEventListener("submit", function (e) {
+        inputFotos.addEventListener("change", () => {
+            preview.innerHTML = "";
+
+            const arquivos = Array.from(inputFotos.files).slice(0, 10);
+            info.textContent = arquivos.length + " foto(s)";
+
+            arquivos.forEach(arq => {
+                const leitor = new FileReader();
+                leitor.onload = e => {
+                    const img = document.createElement("img");
+                    img.src = e.target.result;
+                    preview.appendChild(img);
+                };
+                leitor.readAsDataURL(arq);
+            });
+        });
+
+        document.getElementById("formAdmin").addEventListener("submit", async (e) => {
             e.preventDefault();
+
+            const arquivos = Array.from(inputFotos.files);
+            const fotosBase64 = await Promise.all(
+                arquivos.map(arq => new Promise(resolve => {
+                    const r = new FileReader();
+                    r.onload = e => resolve(e.target.result);
+                    r.readAsDataURL(arq);
+                }))
+            );
 
             const novo = {
                 id: Date.now(),
-                titulo: document.getElementById("tituloAdmin").value.trim(),
-                tipoNegocio: document.getElementById("tipoNegocioAdmin").value,
-                tipoImovel: document.getElementById("tipoImovelAdmin").value,
-                preco: Number(document.getElementById("precoAdmin").value),
-                cidade: document.getElementById("cidadeAdmin").value.trim(),
-                bairro: document.getElementById("bairroAdmin").value.trim(),
-                quartos: Number(document.getElementById("quartosAdmin").value || 0),
-                banheiros: Number(document.getElementById("banheirosAdmin").value || 0),
-                vagas: Number(document.getElementById("vagasAdmin").value || 0),
-                descricao: document.getElementById("descricaoAdmin").value.trim(),
-                whatsapp: document.getElementById("whatsAdmin").value.trim(),
-                destaque: document.getElementById("destaqueAdmin").checked,
-                dataCadastro: new Date().toISOString().slice(0, 10),
-                fotos: [
-                    document.getElementById("foto1").value.trim(),
-                    document.getElementById("foto2").value.trim(),
-                    document.getElementById("foto3").value.trim()
-                ].filter(Boolean)
+                titulo: tituloAdmin.value.trim(),
+                tipoNegocio: tipoNegocioAdmin.value,
+                tipoImovel: tipoImovelAdmin.value,
+                preco: Number(precoAdmin.value),
+                cidade: cidadeAdmin.value.trim(),
+                bairro: bairroAdmin.value.trim(),
+                quartos: Number(quartosAdmin.value),
+                banheiros: Number(banheirosAdmin.value),
+                vagas: Number(vagasAdmin.value),
+                descricao: descricaoAdmin.value.trim(),
+                whatsapp: whatsAdmin.value.trim(),
+                destaque: destaqueAdmin.checked,
+                fotos: fotosBase64
             };
 
-            const chave = "imoveisExtras";
-            let extras = [];
             try {
-                extras = JSON.parse(localStorage.getItem(chave)) || [];
-            } catch (e2) {
-                extras = [];
+                const resp = await fetch("http://72.60.152.220:6001/adicionar", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(novo)
+                });
+
+                const data = await resp.json();
+
+                if (data.status === "ok") {
+                    alert("Imóvel salvo com sucesso!");
+                    location.reload();
+                } else {
+                    alert("Erro ao salvar no servidor.");
+                }
+            } catch (err) {
+                alert("Falha ao conectar ao servidor.");
+                console.error(err);
             }
-
-            extras.unshift(novo);
-            localStorage.setItem(chave, JSON.stringify(extras));
-
-            alert("Imóvel cadastrado com sucesso! Ele já aparece na página inicial.");
-            formAdmin.reset();
         });
     </script>
 </body>
