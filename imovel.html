@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes do Imóvel</title>
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- CSS da página individual -->
+    <link rel="stylesheet" href="imovel.css" />
+</head>
+
+<body>
+
+    <button class="btn-voltar" onclick="history.back()">← Voltar</button>
+
+    <!-- Conteúdo da página -->
+    <div class="imovel-container">
+
+        <div id="carrosselImagens" class="carrossel"></div>
+
+        <div class="imovel-info">
+
+            <h1 id="tituloImovel"></h1>
+            <p id="localImovel" class="local"></p>
+
+            <div class="preco-destaque">
+                <span id="precoImovel"></span>
+            </div>
+
+            <div class="caracteristicas" id="caracteristicasImovel"></div>
+
+            <h2>Descrição</h2>
+            <p id="descricaoImovel" class="descricao"></p>
+
+            <a id="btnWhats" class="botao-whats" target="_blank">
+                💬 Falar no WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="imovel.js"></script>
+
+</body>
+
+</html>

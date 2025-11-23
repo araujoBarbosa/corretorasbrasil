@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enviar Dados do Imóvel</title>
+
+    <style>
+        body {
+            background: #0b1020;
+            color: #f9fafb;
+            font-family: "Inter", sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #111827;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #1f2937;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+        }
+
+        .campo label {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .campo input,
+        .campo select,
+        .campo textarea {
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #1f2937;
+            background: #0b1020;
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Enviar dados do seu imóvel</h1>
+
+        <p style="text-align:center;color:#9ca3af;margin-bottom:20px;">
+            Após envio, seu anúncio será publicado em até 12 horas.
+        </p>
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+
+            <div class="campo">
+                <label>Título do anúncio</label>
+                <input type="text" required>
+            </div>
+
+            <div class="campo">
+                <label>Tipo do imóvel</label>
+                <select required>
+                    <option value="">Selecione</option>
+                    <option>Casa</option>
+                    <option>Apartamento</option>
+                    <option>Kitnet</option>
+                    <option>Sala comercial</option>
+                    <option>Terreno</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Cidade</label>
+                <input type="text" required>
+            </div>
+
+            <div class="campo">
+                <label>Bairro</label>
+                <input type="text" required>
+            </div>
+
+            <div class="campo">
+                <label>Preço (R$)</label>
+                <input type="number" required>
+            </div>
+
+            <div class="campo">
+                <label>WhatsApp para contato</label>
+                <input type="text" required>
+            </div>
+
+            <div class="campo">
+                <label>Descrição completa</label>
+                <textarea rows="5"></textarea>
+            </div>
+
+            <div class="campo">
+                <label>Fotos do imóvel (até 10)</label>
+                <input type="file" accept="image/*" multiple>
+            </div>
+
+            <a href="https://wa.me/5511982165212?text=Olá!%20Gostaria%20de%20enviar%20os%20dados%20para%20anunciar%20meu%20imóvel.%0A%0A*Informações%20do%20Imóvel:*%0A•%20Título:%20%0A•%20Tipo%20(casa,%20apto,%20kitnet,%20sala):%20%0A•%20Cidade:%20%0A•%20Bairro:%20%0A•%20Preço:%20%0A•%20WhatsApp%20para%20o%20anúncio:%20%0A•%20Descrição:%20%0A%0A📸%20*Envie%20as%20fotos%20do%20imóvel%20aqui%20mesmo%20no%20WhatsApp.*%0A%0ATerminei!%20Pode%20publicar%20😊"
+                target="_blank" class="btn-whats-enviar">
+                📱 Enviar anúncio pelo WhatsApp
+            </a>
+
+        </form>
+    </div>
+</body>
+
+</html>

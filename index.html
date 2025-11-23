@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corretores Brasil</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Header / Topo -->
+  <header class="topo">
+    <div class="container topo-conteudo">
+      <div class="logo">
+        <span class="logo-icone">🏠</span>
+        <div class="logo-textos">
+          <h1>Corretoras Brasil</h1>
+          <p>Venda e aluguel em todo o Brasil</p>
+        </div>
+      </div>
+
+      <a href="planos.html" class="btn-primario">
+        ✨ Anunciar imóvel
+      </a>
+    </div>
+  </header>
+
+  <button id="btnAbrirAnuncio" class="btn-primario">
+    ✨ Anunciar imóvel
+  </button>
+
+  <!-- Área de filtros -->
+  <section class="filtros">
+    <div class="container filtros-conteudo">
+      <div class="campo">
+        <label for="buscaLocal">Cidade ou bairro</label>
+        <input type="text" id="buscaLocal" placeholder="Ex: São Paulo, Centro, Campinas..." />
+      </div>
+
+      <div class="campo">
+        <label for="tipoNegocio">Tipo de negócio</label>
+        <select id="tipoNegocio">
+          <option value="">Venda e aluguel</option>
+          <option value="venda">Somente venda</option>
+          <option value="aluguel">Somente aluguel</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="tipoImovel">Tipo de imóvel</label>
+        <select id="tipoImovel">
+          <option value="">Todos</option>
+          <option value="casa">Casa</option>
+          <option value="apartamento">Apartamento</option>
+          <option value="kitnet">Kitnet</option>
+          <option value="terreno">Terreno</option>
+          <option value="sala_comercial">Sala comercial</option>
+        </select>
+      </div>
+
+      <div class="campo campo-preco">
+        <label>Faixa de preço (R$)</label>
+        <div class="precos">
+          <input type="number" id="precoMin" placeholder="Mín" min="0" />
+          <span>—</span>
+          <input type="number" id="precoMax" placeholder="Máx" min="0" />
+        </div>
+      </div>
+
+      <button class="btn-secundario" id="btnFiltrar">
+        🔍 Buscar
+      </button>
+    </div>
+  </section>
+
+  <!-- Destaques -->
+  <section class="secao">
+    <div class="container">
+      <h2>Imóveis em destaque</h2>
+      <p class="subtitulo">
+        Anúncios impulsionados aparecem primeiro e recebem muito mais contatos.
+      </p>
+
+      <div class="grade-imoveis" id="listaDestaques">
+        <!-- Cards de destaques gerados via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista geral -->
+  <section class="secao">
+    <div class="container">
+      <h2>Todos os imóveis</h2>
+      <p class="subtitulo" id="resumoResultados"></p>
+
+      <div class="grade-imoveis" id="listaImoveis">
+        <!-- Cards de imóveis gerados via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de novo anúncio -->
+  <div class="modal" id="modalAnuncio">
+    <div class="modal-conteudo">
+      <div class="modal-topo">
+        <h3>Cadastre seu imóvel</h3>
+        <button class="btn-fechar" id="btnFecharModal">✕</button>
+      </div>
+
+      <form id="formAnuncio">
+        <div class="linha-form">
+          <div class="campo">
+            <label for="titulo">Título do anúncio</label>
+            <input type="text" id="titulo" required placeholder="Ex: Casa 2qts com garagem em bairro tranquilo" />
+          </div>
+        </div>
+
+        <div class="linha-form">
+          <div class="campo">
+            <label for="tipoNegocioForm">Tipo de negócio</label>
+            <select id="tipoNegocioForm" required>
+              <option value="">Selecione</option>
+              <option value="venda">Venda</option>
+              <option value="aluguel">Aluguel</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="tipoImovelForm">Tipo de imóvel</label>
+            <select id="tipoImovelForm" required>
+              <option value="">Selecione</option>
+              <option value="casa">Casa</option>
+              <option value="apartamento">Apartamento</option>
+              <option value="kitnet">Kitnet</option>
+              <option value="terreno">Terreno</option>
+              <option value="sala_comercial">Sala comercial</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="linha-form">
+          <div class="campo">
+            <label for="precoForm">Preço (R$)</label>
+            <input type="number" id="precoForm" required min="0" placeholder="Ex: 350000" />
+          </div>
+
+          <div class="campo">
+            <label for="cidadeForm">Cidade</label>
+            <input type="text" id="cidadeForm" required placeholder="Ex: São Paulo" />
+          </div>
+
+          <div class="campo">
+            <label for="bairroForm">Bairro</label>
+            <input type="text" id="bairroForm" required placeholder="Ex: Vila Mariana" />
+          </div>
+        </div>
+
+        <div class="linha-form">
+          <div class="campo">
+            <label for="quartosForm">Quartos</label>
+            <input type="number" id="quartosForm" min="0" placeholder="2" />
+          </div>
+
+          <div class="campo">
+            <label for="banheirosForm">Banheiros</label>
+            <input type="number" id="banheirosForm" min="0" placeholder="1" />
+          </div>
+
+          <div class="campo">
+            <label for="vagasForm">Vagas</label>
+            <input type="number" id="vagasForm" min="0" placeholder="1" />
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="descricaoForm">Descrição</label>
+          <textarea id="descricaoForm" rows="4"
+            placeholder="Descreva o imóvel, pontos positivos, proximidade de comércio, etc."></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="whatsForm">WhatsApp para contato</label>
+          <input type="tel" id="whatsForm" required placeholder="DDD + número (somente dígitos)" />
+        </div>
+
+        <!-- CAMPO DE FOTOS (AGORA BEM ESTILIZADO) -->
+        <div class="campo">
+          <label for="fotosForm">Fotos do imóvel (até 10 imagens)</label>
+
+          <div class="upload-wrapper">
+            <label for="fotosForm" class="upload-btn">📸 Selecionar fotos</label>
+            <span id="uploadInfo" class="upload-info">Nenhuma foto selecionada</span>
+
+            <input type="file" id="fotosForm" accept="image/*" multiple hidden />
+
+            <div id="previewFotos" class="preview-fotos"></div>
+          </div>
+
+          <small style="color:#9ca3af; font-size:12px;">
+            Você pode selecionar várias fotos segurando CTRL (no computador).
+          </small>
+        </div>
+
+        <div class="campo destaque-campo">
+          <label>
+            <input type="checkbox" id="destaqueForm" />
+            Quero que este anúncio seja <strong>destaque</strong> (ideal para venda rápida)
+          </label>
+        </div>
+
+        <div class="acoes-form">
+          <button type="button" class="btn-secundario" id="btnCancelar">
+            Cancelar
+          </button>
+          <button type="submit" class="btn-primario">
+            Publicar anúncio
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Fundo escuro do modal -->
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

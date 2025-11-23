@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planos e Preços – Portal de Imóveis</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        body {
+            background: #0b1020;
+            color: #f9fafb;
+            font-family: "Inter", sans-serif;
+        }
+
+        .planos-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        p.sub {
+            font-size: 16px;
+            color: #9ca3af;
+            margin-bottom: 40px;
+        }
+
+        .plano-card {
+            background: linear-gradient(145deg, #111827, #0a0f1a);
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .plano-titulo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plano-preco {
+            font-size: 38px;
+            font-weight: 800;
+            color: #22c55e;
+            margin: 20px 0;
+        }
+
+        ul.beneficios {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            font-size: 16px;
+        }
+
+        ul.beneficios li {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-pagar {
+            display: block;
+            margin: 30px auto 0;
+            padding: 14px 24px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+            width: fit-content;
+            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+            transition: 0.2s;
+        }
+
+        .btn-pagar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 35px rgba(37, 99, 235, 0.6);
+        }
+
+        .info-pix {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="planos-container">
+        <h1>Planos e Preços</h1>
+        <p class="sub">Escolha o plano perfeito para anunciar seus imóveis com máxima visibilidade.</p>
+
+        <div class="plano-card">
+
+            <div class="plano-titulo">Plano Essencial</div>
+            <div class="plano-preco">R$ 19,90 <span style="font-size:16px;font-weight:300;">/ mês</span></div>
+
+            <ul class="beneficios">
+                <li>📌 Até <strong>3 anúncios ativos</strong></li>
+                <li>📸 Fotos ilimitadas</li>
+                <li>✨ Destaque básico no site</li>
+                <li>📱 Contato direto via WhatsApp</li>
+                <li>📍 Página completa do imóvel</li>
+                <li>🖼️ Carrossel de fotos profissional</li>
+                <li>🛠 Suporte via WhatsApp</li>
+            </ul>
+
+            <a href="#" class="btn-pagar">Pagar no Pix</a>
+
+            <a href="https://wa.me/5511982165212?text=Olá!%20Gostaria%20de%20enviar%20os%20dados%20para%20anunciar%20meu%20imóvel.%0A%0A*Informações%20do%20Imóvel:*%0A•%20Título:%20%0A•%20Tipo%20(casa,%20apto,%20kitnet,%20sala):%20%0A•%20Cidade:%20%0A•%20Bairro:%20%0A•%20Preço:%20%0A•%20WhatsApp%20para%20o%20anúncio:%20%0A•%20Descrição:%20%0A%0A📸%20*Envie%20as%20fotos%20do%20imóvel%20aqui%20mesmo%20no%20WhatsApp.*%0A%0ATerminei!%20Pode%20publicar%20😊"
+                target="_blank" class="btn-whats-enviar">
+                📱 Enviar anúncio pelo WhatsApp
+            </a>
+
+            <p class="info-pix">Após o pagamento, você envia os dados do imóvel e o anúncio é publicado rapidamente.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

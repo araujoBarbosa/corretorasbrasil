@@ -1,0 +1,564 @@
+:root {
+  --cor-fundo: #0b1020;
+  --cor-fundo-card: #111827;
+  --cor-fundo-card-alt: #020617;
+  --cor-primaria: #3b82f6;
+  --cor-primaria-escura: #1d4ed8;
+  --cor-acento: #22c55e;
+  --cor-texto: #f9fafb;
+  --cor-texto-suave: #9ca3af;
+  --cor-borda: #1f2937;
+  --radius-card: 16px;
+  --sombra-card: 0 18px 35px rgba(15, 23, 42, 0.8);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: var(--cor-texto);
+}
+
+/* 🔒 Quando o modal abre, o fundo para de rolar */
+body.modal-aberto {
+  overflow: hidden;
+}
+
+/* Containers gerais */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Topo */
+.topo {
+  border-bottom: 1px solid var(--cor-borda);
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.topo-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icone {
+  font-size: 32px;
+}
+
+.logo-textos h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.logo-textos p {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+/* Botões */
+.btn-primario,
+.btn-secundario {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-primario {
+  background: linear-gradient(135deg, var(--cor-primaria), #4f46e5);
+  color: #f9fafb;
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primario:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 35px rgba(37, 99, 235, 0.6);
+}
+
+.btn-secundario {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+}
+
+.btn-secundario:hover {
+  background: #111827;
+}
+
+/* Filtros */
+.filtros {
+  border-bottom: 1px solid var(--cor-borda);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+}
+
+.filtros-conteudo {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr auto;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo label {
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  background: #020617;
+  border-radius: 999px;
+  border: 1px solid var(--cor-borda);
+  padding: 9px 12px;
+  color: var(--cor-texto);
+  font-size: 14px;
+  outline: none;
+}
+
+.campo textarea {
+  border-radius: 14px;
+  resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: #6b7280;
+}
+
+.campo-preco .precos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.campo-preco input {
+  width: 100%;
+}
+
+/* Seções */
+.secao {
+  padding: 24px 0 32px;
+}
+
+.secao h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.subtitulo {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+  margin-bottom: 16px;
+}
+
+/* Cards */
+.grade-imoveis {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card-imovel {
+  background: radial-gradient(circle at top left, #1f2937, #020617);
+  border-radius: var(--radius-card);
+  box-shadow: var(--sombra-card);
+  overflow: hidden;
+  border: 1px solid rgba(55, 65, 81, 0.7);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-banner {
+  height: 150px;
+  background-color: #0ea5e9;
+  position: relative;
+  transition: transform 0.4s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-imovel:hover .card-banner {
+  transform: scale(1.05);
+}
+
+.badge-tipo-negocio {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f9fafb;
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.badge-venda {
+  border: 1px solid #22c55e;
+}
+
+.badge-aluguel {
+  border: 1px solid #f97316;
+}
+
+.badge-destaque {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fde047, #f97316);
+  color: #111827;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(185, 140, 30, 0.7);
+}
+
+.card-corpo {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-titulo {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.card-preco {
+  font-size: 16px;
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.card-local {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+.card-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+}
+
+.card-info span {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(55, 65, 81, 0.7);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.card-whats {
+  font-size: 12px;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-whats small {
+  color: var(--cor-texto-suave);
+  font-size: 11px;
+}
+
+/* Modal */
+.modal,
+.modal-backdrop {
+  display: none;
+}
+
+.modal-backdrop.ativo {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  z-index: 30;
+}
+
+.modal.ativo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  padding: 16px;
+}
+
+/* 🔥 Correção principal: rolagem interna no modal */
+.modal-conteudo {
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  /* impede passar da tela */
+  overflow-y: auto;
+  /* cria barra de rolagem interna */
+  background: #020617;
+  border-radius: 20px;
+  border: 1px solid var(--cor-borda);
+  box-shadow: var(--sombra-card);
+  padding: 16px 18px 24px;
+  /* espaço extra para o botão */
+}
+
+.modal-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.modal-topo h3 {
+  font-size: 18px;
+}
+
+.btn-fechar {
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.linha-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.linha-form .campo {
+  margin-bottom: 0;
+}
+
+.campo.destaque-campo {
+  margin-top: 8px;
+}
+
+.campo.destaque-campo label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.campo.destaque-campo input[type="checkbox"] {
+  width: auto;
+}
+
+.acoes-form {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Upload */
+.upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upload-btn {
+  background: linear-gradient(135deg, var(--cor-primaria), #4f46e5);
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.upload-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 35px rgba(37, 99, 235, 0.6);
+}
+
+.upload-info {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+/* Preview */
+.preview-fotos {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.preview-fotos img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .filtros-conteudo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .linha-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .topo-conteudo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filtros-conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .linha-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-botao {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-verdetalhes {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+  transition: 0.2s ease;
+}
+
+.btn-verdetalhes:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.55);
+}
+
+/* Botão WhatsApp Enviar */
+.btn-whats-enviar {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 25px rgba(34, 197, 94, 0.35);
+  transition: 0.2s;
+}
+
+.btn-whats-enviar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(34, 197, 94, 0.55);
+}
+
+/* Selo Novo */
+.badge-novo {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.5);
+}
+
+/* Botão Favoritar */
+.btn-fav {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-fav:hover {
+  transform: scale(1.15);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Animação Fade-In */
+.card-imovel {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeCard 0.5s ease forwards;
+}
+
+@keyframes fadeCard {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
